@@ -1,0 +1,97 @@
+@mixin transition($property: all, $duration: 0.5s, $ease: cubic-bezier(0.65,-0.25,0.25, 1.95)) {
+    transition: $property $duration $ease;
+}
+
+@mixin ul-defaults {
+    list-style: none;
+    text-align: center;
+    background-color: #444;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin font {
+    font-family: 'Oswald', sans-serif;
+}
+
+.horizontal {
+    ul {
+       @include ul-defaults(); 
+    }
+
+    li {
+        @include font();
+        width: 120px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.4em;
+        display: inline-block;
+
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        transition: .3s background-color;
+        display: block;
+        @include transition(all, 0.5s, cubic-bezier(0.65,-0.25,0.25,1.95));
+        text-transform: uppercase;
+        
+    }
+
+    a:hover {
+        background-color: #005f5f;
+    }
+
+    a:focus {
+        background-color: #fff;
+        color: #444;
+        cursor: default;
+    }
+
+    a:hover, a:focus, a:active {
+        letter-spacing: 0.1rem;
+    }
+}
+
+.vertical {
+    width: 50%;
+    margin: auto;
+
+    ul {
+        @include ul-defaults(); 
+    }
+
+    li {
+        @include font();
+        font-size: 1.2em;
+        line-height: 40px;
+        height: 40px;
+        border-bottom: 1px solid #888;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        display: block;
+        transition: .3s background-color;
+        @include transition(all, 0.5s, cubic-bezier(0.65,-0.25,0.25,1.95));
+        text-transform: uppercase;
+    }
+
+    a:hover {
+        background-color: #005f5f;
+    }
+
+    a:focus {
+        background-color: #fff;
+        color: #444;
+        cursor: default;
+    }
+
+    a:hover, a:focus, a:active {
+        letter-spacing: 0.1rem;
+    }
+
+
+}
